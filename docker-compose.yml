@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  bricklink-order:
+    container_name: bricklink-order
+    image: bricklink-order
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    volumes:
+      - '.:/usr/src/bricklink-order'

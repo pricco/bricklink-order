@@ -1,0 +1,4 @@
+export const CONCURRENT_REQUESTS = 3;
+export const STORE_CACHE_IN_DAYS = 2;
+
+export default { CONCURRENT_REQUESTS, STORE_CACHE_IN_DAYS };
