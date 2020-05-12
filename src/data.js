@@ -37,6 +37,7 @@ export const getIds = (item) => [
 const WantedSchema = new mongoose.Schema({
   id: {type: String, unique: true},
   items: [ItemSchema],
+  fetched: Date,
 });
 WantedSchema.statics.getById = async id => {
   return await Wanted.findOne({ id });
@@ -64,13 +65,13 @@ const WantedStoreSchema = new mongoose.Schema({
   wanted: {type: mongoose.Schema.Types.ObjectId, ref: 'Wanted'},
   store: {type: mongoose.Schema.Types.ObjectId, ref: 'Store'},
   items: [ItemSchema],
-  updated: Date,
+  fetched: Date,
 });
 WantedStoreSchema.statics.getByWantedStore = async (wanted, store) => {
-  return await WantedStore.findOne({ wanted, store }).populate('wanted').populate('store');
+  return await WantedStore.findOne({ wanted, store }).populate('store');
 };
 WantedStoreSchema.statics.listByWanted = async (wanted) => {
-  return await WantedStore.find({ wanted }).populate('wanted').populate('store');
+  return await WantedStore.find({ wanted }).populate('store');
 };
 WantedStoreSchema.statics.deleteByWanted = async wanted => {
   return await WantedStore.deleteMany({ wanted });
