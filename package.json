@@ -9,7 +9,7 @@
     "csv": "^5.3.2",
     "fetch-cookie": "^0.8.0",
     "mongoose": "^5.9.13",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "yargs": "15.3.1"
   },
   "scripts": {
